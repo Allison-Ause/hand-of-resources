@@ -31,7 +31,7 @@ describe('yarn routes', () => {
       weight: 'Sport',
       ply: 2,
     };
-    const res = await request(app).send(newYarn);
+    const res = await request(app).post('/yarn').send(newYarn);
     expect(res.status).toBe(200);
     expect(res.body).toEqual({
       id: expect.any(String),

@@ -41,7 +41,7 @@ describe('yarn routes', () => {
   it('#PUT /yarn/:id updates single yarn', async () => {
     const res = await request(app).put('/yarn/1').send({ weight: 'Bulky' });
     expect(res.status).toBe(200);
-    expect(res.body).toBe('Bulky');
+    expect(res.body.weight).toBe('Bulky');
   });
 });
 afterAll(() => {

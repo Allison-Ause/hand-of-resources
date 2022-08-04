@@ -15,7 +15,6 @@ describe('yarn routes', () => {
 
   it('#GET /yarn/:id displays single yarn', async () => {
     const res = await request(app).get('/yarn/1');
-    console.log('res.body', res.body);
     expect(res.status).toBe(200);
     expect(res.body).toEqual({
       id: '1',
@@ -23,6 +22,20 @@ describe('yarn routes', () => {
       fiber: 'Wool',
       weight: 'DK',
       ply: 3,
+    });
+  });
+  it('#POST /yarn/ adds new yarn', async () => {
+    const newYarn = {
+      brand: 'BlueSky',
+      fiber: 'Linen',
+      weight: 'Sport',
+      ply: 2,
+    };
+    const res = await request(app).send(newYarn);
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      ...newYarn,
     });
   });
 });

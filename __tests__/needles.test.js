@@ -23,6 +23,20 @@ describe('yarn routes', () => {
       length: 16,
     });
   });
+
+  it('#POST (/needles) route adds new needle', async () => {
+    const newNeedle = {
+      company: 'Addi Turbo',
+      material: 'Platinum',
+      length: 60,
+    };
+    const res = request(app).post('/needles').send(newNeedle);
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      ...newNeedle,
+    });
+  });
 });
 afterAll(async () => {
   await setup(pool);

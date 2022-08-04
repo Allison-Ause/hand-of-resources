@@ -43,7 +43,15 @@ describe('yarn routes', () => {
     expect(res.status).toBe(200);
     expect(res.body.weight).toBe('Bulky');
   });
+  it('#DELETE /yarn/:id deletes single yarn', async () => {
+    const res = await request(app).delete('/yarn/1');
+    expect(res.status).toBe(200);
+
+    const yarnResp = await request(app).get('/yarn/1');
+    expect(yarnResp.status).toBe(404);
+  });
 });
-afterAll(() => {
+afterAll(async () => {
+  await setup(pool);
   pool.end();
 });

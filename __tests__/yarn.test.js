@@ -7,13 +7,13 @@ describe('yarn routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('#GET /yarn displays list of yarn', async () => {
+  it.skip('#GET /yarn displays list of yarn', async () => {
     const res = await request(app).get('/yarn');
     expect(res.status).toBe(200);
     expect(res.body.length === 4);
   });
 
-  it('#GET /yarn/:id displays single yarn', async () => {
+  it.skip('#GET /yarn/:id displays single yarn', async () => {
     const res = await request(app).get('/yarn/1');
     expect(res.status).toBe(200);
     expect(res.body).toEqual({
@@ -24,7 +24,7 @@ describe('yarn routes', () => {
       ply: 3,
     });
   });
-  it('#POST /yarn/ adds new yarn', async () => {
+  it.skip('#POST /yarn/ adds new yarn', async () => {
     const newYarn = {
       brand: 'BlueSky',
       fiber: 'Linen',
@@ -38,12 +38,12 @@ describe('yarn routes', () => {
       ...newYarn,
     });
   });
-  it('#PUT /yarn/:id updates single yarn', async () => {
+  it.skip('#PUT /yarn/:id updates single yarn', async () => {
     const res = await request(app).put('/yarn/1').send({ weight: 'Bulky' });
     expect(res.status).toBe(200);
     expect(res.body.weight).toBe('Bulky');
   });
-  it('#DELETE /yarn/:id deletes single yarn', async () => {
+  it.skip('#DELETE /yarn/:id deletes single yarn', async () => {
     const res = await request(app).delete('/yarn/1');
     expect(res.status).toBe(200);
 

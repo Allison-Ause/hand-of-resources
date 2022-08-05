@@ -36,11 +36,11 @@ INSERT INTO needles (company, material, length) VALUES
 CREATE TABLE cookies (
   id BIGINT GENERATED ALWAYS AS IDENTITY,
   name VARCHAR,
-  yield INT,
+  batch_yield INT,
   deliciousness INT
 );
 
-INSERT INTO cookies (name, yield, deliciousness) VALUES
+INSERT INTO cookies (name, batch_yield, deliciousness) VALUES
 ('Snickerdoodle', 24, 9),
 ('Chocolate Crinkle', 36, 10),
 ('Oatmeal', 12, 6),

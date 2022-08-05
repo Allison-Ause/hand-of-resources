@@ -3,7 +3,7 @@ DROP table if exists yarn;
 DROP table if exists needles;
 DROP table if exists cookies;
 DROP table if exists sheep;
---- aromatics (plant, scent, rare)
+DROP table if exists aromatics;
 
 
 CREATE TABLE yarn (
@@ -59,3 +59,17 @@ INSERT INTO sheep (name, breed, region, age) VALUES
 ('Clemence', 'Awassi', 'Egypt', 7),
 ('Magda', 'Scottish Blackface', 'Scotland', 5),
 ('Dior', 'French Merino', 'France', 12);
+
+CREATE TABLE aromatics (
+  id BIGINT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR,
+  color VARCHAR,
+  scent_strength INT,
+  toxic BOOLEAN
+);
+
+INSERT INTO aromatics (name, color, scent_strength, toxic) VALUES
+('Lavender', 'Purple', 10, false),
+('Rosemary', 'Green', 9, false),
+('Foxglove', 'Pink', 5, true),
+('Amber', 'Golden', 4, true);

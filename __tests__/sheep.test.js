@@ -3,17 +3,17 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-describe('yarn routes', () => {
+describe('sheep routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('#GET /sheep displays full list of sheep', async () => {
+  it.skip('#GET /sheep displays full list of sheep', async () => {
     const res = await request(app).get('/sheep');
     expect(res.status).toBe(200);
     expect(res.body.length).toBe(4);
   });
 
-  it('#GET /sheep/:id displays one sheep', async () => {
+  it.skip('#GET /sheep/:id displays one sheep', async () => {
     const res = await request(app).get('/sheep/1');
     expect(res.status).toBe(200);
     expect(res.body).toEqual({
@@ -25,7 +25,7 @@ describe('yarn routes', () => {
     });
   });
 
-  it('#POST /sheep adds new sheep', async () => {
+  it.skip('#POST /sheep adds new sheep', async () => {
     const newSheep = {
       name: 'Sofia',
       breed: 'Bluefaced Leister',
@@ -40,13 +40,13 @@ describe('yarn routes', () => {
     });
   });
 
-  it('#PUT /sheep/:id updates single sheep', async () => {
+  it.skip('#PUT /sheep/:id updates single sheep', async () => {
     const res = await request(app).put('/sheep/1').send({ age: 45 });
     expect(res.status).toBe(200);
     expect(res.body.age).toBe(45);
   });
 
-  it('#DELETE /sheep/:id deletes a single sheep', async () => {
+  it.skip('#DELETE /sheep/:id deletes a single sheep', async () => {
     const res = await request(app).delete('/sheep/1');
     expect(res.status).toBe(200);
 

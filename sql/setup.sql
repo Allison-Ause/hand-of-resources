@@ -2,7 +2,7 @@
 DROP table if exists yarn;
 DROP table if exists needles;
 DROP table if exists cookies;
---- sheep (name, breed, cuteness)
+DROP table if exists sheep;
 --- aromatics (plant, scent, rare)
 
 
@@ -45,3 +45,17 @@ INSERT INTO cookies (name, batch_yield, deliciousness) VALUES
 ('Chocolate Crinkle', 36, 10),
 ('Oatmeal', 12, 6),
 ('Shortbread', 48, 8);
+
+CREATE TABLE sheep (
+  id BIGINT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR,
+  breed VARCHAR,
+  region VARCHAR,
+  age INT
+);
+
+INSERT INTO sheep (name, breed, region, age) VALUES
+('Bopsy', 'Valais Blacknose', 'Switzerland', 2),
+('Clemence', 'Awassi', 'Egypt', 7),
+('Magda', 'Scottish Blackface', 'Scotland', 5),
+('Dior', 'French Merino', 'France', 12);

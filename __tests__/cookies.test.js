@@ -38,6 +38,21 @@ describe('yarn routes', () => {
       ...newCookie,
     });
   });
+
+  it.skip('#PUT /cookies/:id updates single cookie', async () => {
+    const res = await request(app).put('/cookies/1').send({ batch_yield: 102 });
+    expect(res.status).toBe(200);
+    expect(res.body.batch_yield).toBe(102);
+  });
+
+  it.skip('#DELETE /cookies/:id deletes a single cookie', async () => {
+    const res = await request(app).delete('/cookies/1');
+    expect(res.status).toBe(200);
+
+    const cookiesRes = await request(app).get('/cookies/1');
+    console.log('cookiesResp = ', cookiesRes);
+    expect(cookiesRes.status).toBe(404);
+  });
 });
 afterAll(async () => {
   await setup(pool);

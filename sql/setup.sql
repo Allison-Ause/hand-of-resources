@@ -1,8 +1,7 @@
 
 DROP table if exists yarn;
 DROP table if exists needles;
---- needles (company, material, length)
---- patterns (name, designer, type, )
+DROP table if exists cookies;
 --- sheep (name, breed, cuteness)
 --- aromatics (plant, scent, rare)
 
@@ -33,3 +32,16 @@ INSERT INTO needles (company, material, length) VALUES
 ('Nova Platina', 'Metal', 24),
 ('Lantern Moon', 'Walnut', 36),
 ('Karbonz', 'Kryptonite', 9);
+
+CREATE TABLE cookies (
+  id BIGINT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR,
+  yield INT,
+  deliciousness INT
+);
+
+INSERT INTO cookies (name, yield, deliciousness) VALUES
+('Snickerdoodle', 24, 9),
+('Chocolate Crinkle', 36, 10),
+('Oatmeal', 12, 6),
+('Shortbread', 48, 8);

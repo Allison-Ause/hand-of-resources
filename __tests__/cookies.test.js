@@ -7,13 +7,13 @@ describe('cookies routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it.skip('#GET /cookies displays list of yarn', async () => {
+  it('#GET /cookies displays list of yarn', async () => {
     const res = await request(app).get('/cookies');
     expect(res.status).toBe(200);
     expect(res.body.length).toEqual(4);
   });
 
-  it.skip('#GET /cookies/:id returns single cookie', async () => {
+  it('#GET /cookies/:id returns single cookie', async () => {
     const res = await request(app).get('/cookies/1');
     expect(res.status).toBe(200);
     expect(res.body).toEqual({
@@ -24,7 +24,7 @@ describe('cookies routes', () => {
     });
   });
 
-  it.skip('#POST /cookies adds a new cookie', async () => {
+  it('#POST /cookies adds a new cookie', async () => {
     const newCookie = {
       name: 'Juniper Snaps',
       batch_yield: 16,
@@ -39,18 +39,17 @@ describe('cookies routes', () => {
     });
   });
 
-  it.skip('#PUT /cookies/:id updates single cookie', async () => {
+  it('#PUT /cookies/:id updates single cookie', async () => {
     const res = await request(app).put('/cookies/1').send({ batch_yield: 102 });
     expect(res.status).toBe(200);
     expect(res.body.batch_yield).toBe(102);
   });
 
-  it.skip('#DELETE /cookies/:id deletes a single cookie', async () => {
+  it('#DELETE /cookies/:id deletes a single cookie', async () => {
     const res = await request(app).delete('/cookies/1');
     expect(res.status).toBe(200);
 
     const cookiesRes = await request(app).get('/cookies/1');
-    console.log('cookiesResp = ', cookiesRes);
     expect(cookiesRes.status).toBe(404);
   });
 });

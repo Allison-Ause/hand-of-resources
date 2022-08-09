@@ -7,13 +7,13 @@ describe('sheep routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it.skip('#GET /sheep displays full list of sheep', async () => {
+  it('#GET /sheep displays full list of sheep', async () => {
     const res = await request(app).get('/sheep');
     expect(res.status).toBe(200);
     expect(res.body.length).toBe(4);
   });
 
-  it.skip('#GET /sheep/:id displays one sheep', async () => {
+  it('#GET /sheep/:id displays one sheep', async () => {
     const res = await request(app).get('/sheep/1');
     expect(res.status).toBe(200);
     expect(res.body).toEqual({
@@ -25,7 +25,7 @@ describe('sheep routes', () => {
     });
   });
 
-  it.skip('#POST /sheep adds new sheep', async () => {
+  it('#POST /sheep adds new sheep', async () => {
     const newSheep = {
       name: 'Sofia',
       breed: 'Bluefaced Leister',
@@ -40,13 +40,13 @@ describe('sheep routes', () => {
     });
   });
 
-  it.skip('#PUT /sheep/:id updates single sheep', async () => {
+  it('#PUT /sheep/:id updates single sheep', async () => {
     const res = await request(app).put('/sheep/1').send({ age: 45 });
     expect(res.status).toBe(200);
     expect(res.body.age).toBe(45);
   });
 
-  it.skip('#DELETE /sheep/:id deletes a single sheep', async () => {
+  it('#DELETE /sheep/:id deletes a single sheep', async () => {
     const res = await request(app).delete('/sheep/1');
     expect(res.status).toBe(200);
 

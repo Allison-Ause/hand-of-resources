@@ -7,13 +7,13 @@ describe('needles routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it.skip('#GET /needles displays list of needles', async () => {
+  it('#GET /needles displays list of needles', async () => {
     const res = await request(app).get('/needles');
     expect(res.status).toBe(200);
     expect(res.body.length).toEqual(4);
   });
 
-  it.skip('#GET /needles/:id returns single needle', async () => {
+  it('#GET /needles/:id returns single needle', async () => {
     const res = await request(app).get('/needles/1');
     expect(res.status).toBe(200);
     expect(res.body).toEqual({
@@ -24,7 +24,7 @@ describe('needles routes', () => {
     });
   });
 
-  it.skip('#POST /needles route adds new needle', async () => {
+  it('#POST /needles route adds new needle', async () => {
     const newNeedle = {
       company: 'Addi Turbo',
       material: 'Platinum',
@@ -38,7 +38,7 @@ describe('needles routes', () => {
     });
   });
 
-  it.skip('#PUT /needles/:id updates a single needle', async () => {
+  it('#PUT /needles/:id updates a single needle', async () => {
     const res = await request(app)
       .put('/needles/1')
       .send({ material: 'Mohair' });
@@ -46,7 +46,7 @@ describe('needles routes', () => {
     expect(res.body.material).toEqual('Mohair');
   });
 
-  it.skip('#DELETE /needles/:id deletes a single needle', async () => {
+  it('#DELETE /needles/:id deletes a single needle', async () => {
     const res = await request(app).delete('/needles/1');
     expect(res.status).toBe(200);
 
